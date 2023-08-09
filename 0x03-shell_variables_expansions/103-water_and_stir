@@ -1,2 +1,2 @@
 #!/bin/bash
-echo bestchol=(${WATER}+${STIR})
+export bestchol=$(( $(echo ${WATER#*}) + $(echo ${STIR#*}) ))
