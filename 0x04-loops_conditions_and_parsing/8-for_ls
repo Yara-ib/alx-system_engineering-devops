@@ -3,5 +3,5 @@
 ls > file
 for n in $(cat file | cut -d -f1);
 do
-    echo $n
+    echo "$n"
 done
