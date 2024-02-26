@@ -6,7 +6,7 @@
 A server is a piece of computer hardware or software that provides functionality for other programs or devices (clients) . Data center that consists of one or more clusters of computers that are connected together to process the requests received from the web server & application server and maybe to get the data requested from the database too.
 
 ## What type of DNS record www is in www.foobar.com?
-CNAME record because www is considered to be a (sub domain for the world wide web) generally and so adding that “www” will be like routing it to the  world wide web to look for the domain request using HTTP requests.
+CNAME record because www is considered to be a (sub domain for the world wide web) generally and so adding that “www” will be like routing it to the world wide web to look for the domain request using HTTP requests.
 
 ## What is the role of the web server?
 It’s what’s processing the HTTP requests sent from the client/user to the Internet, AKA HTTP server too. It’ll look for the IP for the domain in the HTTP request to get the domain representing it and start processing the other requests that will be later sent from the user end.
@@ -18,8 +18,7 @@ It’s the server that hosts the code base (application files) which could be a 
 It saves the data into a storage to be able to retrieve it whenever needed/queried by the server, processed requests or queried by the developers or the end users depending on which data is accessible for each for sure or the granted permissions.
 
 ## What is the server using to communicate with the computer of the user requesting the website?
-The web server handles the HTTP requests, if those requests need further processing they’ll be routed to the application server to handle them or retrieved back from the code base if valid. (not sure of the last part).
-
+The web server handles the HTTP requests, if those requests need further processing they’ll be routed to the application server to handle them or retrieved back from the code base if valid.
 
 ## You must be able to explain what the issues are with this infrastructure:
 

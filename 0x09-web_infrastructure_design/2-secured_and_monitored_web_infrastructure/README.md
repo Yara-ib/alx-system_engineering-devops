@@ -9,13 +9,13 @@ To filter the requests sent to the server if it’s secured or not, if it’s, t
 Because HTTPS is the secured version for HTTP which acts as another layer of protection that filters the traffic if it’s safe or risky.
 
 ## What monitoring is used for?
-( Infrastructure monitoring - applications monitoring - network monitoring - security monitoring - security monitoring - performance monitoring - capacity planning - business process monitoring )
+( Infrastructure monitoring - applications monitoring - network monitoring - security monitoring - security monitoring - performance monitoring - capacity planning - business process monitoring ).
 
 ## How the monitoring tool is collecting data?
 It collects data from sources within the IT environment to provide insights into the health, performance, and security of systems, networks and applications.
-1. Agent based monitoring where agents collect data from the local system including system metrics , resource utilization, log files
-2. Agentless monitoring does not require the installation of monitoring agents on individual instead tool use protocols such as SNMP (simple network management protocol) ssh(secure shell)
-3. Other tools that collect data - API integration -  Log monitoring - Packet capture
+1. Agent based monitoring where agents collect data from the local system including system metrics , resource utilization, log files.
+2. Agentless monitoring does not require the installation of monitoring agents on individual instead tool use protocols such as SNMP (simple network management protocol) ssh(secure shell).
+3. Other tools that collect data - API integration - Log monitoring - Packet capture.
 
 ## Explain what to do if you want to monitor your web server QPS?
 Setting a monitor tool, configure the metric collection, design the dashboards needed to visualize the Query Per Seconds and other metrics, then setting the limits for alerts.
