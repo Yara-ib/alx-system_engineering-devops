@@ -14,6 +14,7 @@
 * [Keyboard shortcuts for Bash](https://intranet.alxswe.com/rltoken/AGxMxuS5IeW8VmEvJyhwvw)
 * [LTS](https://wiki.ubuntu.com/LTS)
 * [Shebang](https://intranet.alxswe.com/rltoken/cE8ZA3kgEaFhB-IDNv31bQ)
+
 ## Learning Objectives
 
 ### General
