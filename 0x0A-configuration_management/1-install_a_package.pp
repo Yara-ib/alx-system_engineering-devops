@@ -1,6 +1,11 @@
-# Manifest to install flask from pip3
+# Manifest to install flask from pip3 & its dependencies
 
-package { 'flask':
-    ensure  => installed,
-    require => Exec['pip3 install Flask==2.1.0']
+package { 'Flask':
+    ensure   => '2.1.0',
+    provider => 'pip3'
+}
+
+package { 'Werkzeug':
+    ensure   => '2.1.1',
+    provider => 'pip3'
 }
