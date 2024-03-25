@@ -2,5 +2,6 @@
 
 exec { 'ssh_config':
     command  => 'ssh -F ~/.ssh/school -o PasswordAuthentication=no',
+    path     => '~/.ssh/school',
     provider => 'shell'
 }
