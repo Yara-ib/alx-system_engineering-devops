@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Client configuration file
-ssh -F ~/.ssh/school -o PasswordAuthentication
+ssh -F ~/.ssh/school -o PasswordAuthentication=no
