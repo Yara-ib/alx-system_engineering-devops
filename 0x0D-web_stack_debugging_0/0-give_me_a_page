@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 # Give me a page task!
-sudo apt-get update
-sudo apt-get install apache2
 sudo service apache2 start
-sudo chown root:root /var/www/html/index.html
-sudo chmod -R 755 /var/www/html/
