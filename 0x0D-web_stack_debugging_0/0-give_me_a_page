@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Give me a page task!
 sudo service apache2 start
+sudo echo "Hello Holberton" | /var/www/html/index.html
