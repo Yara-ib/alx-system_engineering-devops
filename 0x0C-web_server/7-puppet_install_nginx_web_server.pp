@@ -1,4 +1,4 @@
-# Setup New Ubuntu server with nginx
+#  Manifest to perform a 301 redirect when querying /redirect_me.
 
 exec { 'update system':
         command => '/usr/bin/apt-get update',
