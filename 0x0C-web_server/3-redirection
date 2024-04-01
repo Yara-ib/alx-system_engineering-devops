@@ -6,7 +6,7 @@ sudo apt-get -y install nginx
 sudo apt-get upgrade -y
 sudo ufw allow 'Nginx HTTP'
 line_number=$(grep -n 'server_name _;' /etc/nginx/sites-available/default | cut -d ":" -f1)
-echo "The line number is: $line_number"
+# echo "The line number is: $line_number"
 sed -i "${line_number}i\    rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 
 # sudo sed -i "46i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n" /etc/nginx/sites-available/default
