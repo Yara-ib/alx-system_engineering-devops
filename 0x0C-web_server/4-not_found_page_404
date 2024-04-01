@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script to install nginx on web-01 server
+sudo apt-get update
+# To remove the error for running processes & lock of accessing it
+sudo rm /var/lib/dpkg/lock-frontend
+sudo apt-get -y install nginx
+sudo apt-get upgrade -y
+# To let the firewall enable connection through port 80; allowed for HTTP
+# Nginx HTTPS: port 443
+# Nginx Full: opens both port 80 & port 443
+sudo ufw allow 'Nginx HTTP'
+# To return a page that contains Hello World!
+sudo touch /var/www/html/index.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+sudo service nginx restart
