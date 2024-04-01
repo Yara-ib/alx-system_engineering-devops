@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # Script to install nginx on web-01 server
 sudo apt-get update
+sudo rm /var/lib/dpkg/lock-frontend
 sudo apt-get -y install nginx
+sudo apt-get upgrade -y
 sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
+sudo touch /var/www/html/index.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 sudo service nginx start
