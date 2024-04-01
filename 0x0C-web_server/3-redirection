@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script to install nginx on web-01 server
+sudo apt-get update
+sudo rm /var/lib/dpkg/lock-frontend
+sudo apt-get -y install nginx
+sudo apt-get upgrade -y
+sudo ufw allow 'Nginx HTTP'
+sudo sed -i "19i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n" /etc/nginx/sites-available/default
+sudo service nginx start
