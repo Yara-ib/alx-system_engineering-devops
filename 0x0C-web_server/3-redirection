@@ -12,5 +12,7 @@ sudo ufw allow 'Nginx HTTP'
 # To return a page that contains Hello World!
 sudo touch /var/www/html/index.html
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
-sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+# sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+sudo sed -i '/listen \[::\]:80 default_server;/a rewrite ^/redirect_me/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
 sudo service nginx restart
