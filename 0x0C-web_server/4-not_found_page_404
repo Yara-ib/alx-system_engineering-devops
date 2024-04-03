@@ -3,13 +3,15 @@
 REWRITE="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 ERR="\n\\terror_page 404 /404.html;\n\tlocation = /var/www/html/404.html {\n\t\tinternal;\n\t}"
 LOOK4="#error_page 404 /404.html;"
+NW="\"Ceci n\'est pas une page\" > /var/www/html/404.html"
 
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo chown -R ubuntu /var/www
-echo "Hello World!" > /var/www/html/index.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 sudo sed -i "30i $REWRITE" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo touch /var/www/html/404.html
+sudo sh -c "echo $NW"
 sudo sed -i "47i\ $LOOK4$ERR" /etc/nginx/sites-available/default
 sudo service nginx restart
 sudo service nginx reload
