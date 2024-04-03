@@ -8,8 +8,8 @@ printf %s "
 backend web-servers
         balance roundrobin
         option forwardfor
-        server 491327-web-01 34.207.211.122:80 check
-        server 491327-web-02 100.25.143.0:80 check
+        server 491327-web-01 100.25.170.129:80 check
+        server 491327-web-02 100.26.121.88:80 check
 frontend haproxy_balancer
          bind *:80
          mode http
