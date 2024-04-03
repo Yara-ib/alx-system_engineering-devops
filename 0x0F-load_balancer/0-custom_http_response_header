@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # Configure Nginx server to give error 404 page
-apt-get update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
+
+sudo apt-get update
+sudo rm /var/lib/dpkg/lock-frontend
+sudo apt-get -y install nginx
+sudo apt-get upgrade -y
+sudo ufw allow 'Nginx HTTP'
 chmod -R 755 /var/www
 echo 'Hello World' > /var/www/html/index.html
 
@@ -10,7 +13,7 @@ new_config=\
 "server {
         listen 80 default_server;
         listen [::]:80 default_server;
-   	add_header X-Served-By $HOSTNAME;
+   	    add_header X-Served-By $HOSTNAME;
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         server_name _;
