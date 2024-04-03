@@ -1,36 +1,16 @@
 #!/usr/bin/env bash
 # Script to install nginx on web-01 server
+rewrite_me="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+error404="\n\\terror_page 404 /404.html;\n\tlocation = /var/www/html/404.html {\n\t\tinternal;\n\t}"
+PATTERN="#error_page 404 /404.html;"
+
+
 sudo apt-get update
-# To remove the error for running processes & lock of accessing it
-sudo rm /var/lib/dpkg/lock-frontend
-sudo apt-get -y install nginx
-sudo apt-get upgrade -y
-# To let the firewall enable connection through port 80; allowed for HTTP
-# Nginx HTTPS: port 443
-# Nginx Full: opens both port 80 & port 443
-sudo ufw allow 'Nginx HTTP'
-# To return a page that contains Hello World!
-sudo touch /var/www/html/index.html
-sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
-new_config=\
-"server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-                try_files \$uri \$uri/ =404;
-        }
-        error_page 404 /404.html;
-        location  /404.html {
-            internal;
-        }
-        if (\$request_filename ~ redirect_me){
-            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-        }
-}
-"
+sudo apt-get install -y nginx
+sudo chown -R ubuntu /var/www
+echo "Hello World!" > /var/www/html/index.html
+sudo sed -i "30i $rewrite_me" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" > /var/www/html/404.html
-echo "$new_config" > /etc/nginx/sites-available/default
+sudo sed -i "47i\ $PATTERN$error404" /etc/nginx/sites-available/default
 sudo service nginx restart
+sudo service nginx reload
