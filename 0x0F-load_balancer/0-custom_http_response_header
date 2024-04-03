@@ -1,26 +1,18 @@
 #!/usr/bin/env bash
 # Configure Nginx server to give error 404 page
-VAR='echo "Ceci n''est pas une page\" > /var/www/html/404.html'
-sudo apt-get update
-# To remove the error for running processes & lock of accessing it
-sudo rm /var/lib/dpkg/lock-frontend
-sudo apt-get -y install nginx
-sudo apt-get upgrade -y
-# To let the firewall enable connection through port 80; allowed for HTTP
-# Nginx HTTPS: port 443
-# Nginx Full: opens both port 80 & port 443
-sudo ufw allow 'Nginx HTTP'
-# To return a page that contains Hello World!
-sudo touch /var/www/html/index.html
-sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+chmod -R 755 /var/www
+echo 'Hello World' > /var/www/html/index.html
 
-nconfig=\
+new_config=\
 "server {
         listen 80 default_server;
         listen [::]:80 default_server;
-   	    add_header X-Served-By $HOSTNAME;
+   	add_header X-Served-By $HOSTNAME;
         root /var/www/html;
-        index index.html;
+        index index.html index.htm index.nginx-debian.html;
         server_name _;
         location / {
                 try_files \$uri \$uri/ =404;
@@ -34,9 +26,9 @@ nconfig=\
         }
 }
 "
-sudo sh -c "$VAR"
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 
-echo "$nconfig" > /etc/nginx/sites-available/default
+echo "$new_config" > /etc/nginx/sites-available/default
 
 if [ "$(pgrep nginx)" -le 0 ];
 then
