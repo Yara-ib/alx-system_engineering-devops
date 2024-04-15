@@ -10,13 +10,8 @@
 
 *nat
 :PREROUTING ACCEPT [0:0]
-:INPUT ACCEPT [0:0]
-:OUTPUT ACCEPT [0:0]
-:POSTROUTING ACCEPT [0:0]
-
-# Port forwarding rule to redirect port 8080 to port 80
 -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-
+COMMIT
 
 # Don't delete these required lines, otherwise there will be errors
 *filter
