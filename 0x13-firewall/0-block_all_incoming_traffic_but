@@ -1,9 +1,18 @@
+# first install the ufw; firewall (if not already been installed)
 sudo apt update
 sudo apt upgrade -y
 sudo apt install ufw
 
+# Allowing connections through ports;
+# 22:SSH
+# 443: HTTPS
+# 80: HTTP
 sudo ufw allow 22
 sudo ufw allow 443
 sudo ufw allow 80
+
+# Checking if rules been added
 sudo ufw show added
+
+# Enabling the firewall with the new rules
 sudo ufw enable
