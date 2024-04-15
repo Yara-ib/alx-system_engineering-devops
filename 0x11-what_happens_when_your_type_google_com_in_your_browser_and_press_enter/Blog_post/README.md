@@ -9,11 +9,10 @@ Routing the query to the .com TLD server, to find the Authoritative DNS server o
 Usually, those DNS queries will be partitioned into sections to include; header, question, answer, authority, and some other information.
 
 ![DNS Query](image.png)
-
-##### Source: https://bunny.net/academy/dns/what-is-a-dns-and-recursive-query/
+###### Source: https://bunny.net/academy/dns/what-is-a-dns-and-recursive-query/
 
 ![DNS Process Step by step](image-1.png)
-##### Source: https://www.holygamerz.com/en/what-is-a-dns-server-explained-easy
+###### Source: https://www.holygamerz.com/en/what-is-a-dns-server-explained-easy
 
 Then the data received needs to be accurate so here comes the beauty of the TCP/IP (Transmission Control Protocol/ Internet Protocol) model which mostly consists of 4 or 5 layers that are mainly used to divide the data into packets to be faster in transferring and to be combined at the end when it reaches its destination after going through those layers;
 
@@ -32,20 +31,20 @@ Considering that recently most of the servers preferred using the HTTPS/SSL (mix
 Now, once that HTTP/HTTPS request has been received by the load-balancer, that load-balancer will have to check which web server will handle that request, depending on several factors; the algorithm the load-balancer uses (Round Robin, Least Connections, Least Time, Hash, IP Hash, Random with Two Choices) to distribute requests among the various web servers connected to it; to avoid risk of having a SPOF (Single Point Of Failure), reducing downtime if one or more web server been down or having a regular back-up or system check-up.
 
 ![alt text](image-2.png)
-##### Source: https://www.nginx.com/resources/glossary/load-balancing/
+###### Source: https://www.nginx.com/resources/glossary/load-balancing/
 
 At this point, the load-balancer already sent the request it got to the assigned web server to check if it can handle the request directly or will need further processing, so if it’s going to just get the website files considering that it hosts webserver software and its files including the web pages like HTML, JS files, and CSS. Subsequently, it’ll ask the application server to enable that interaction between the user and the application code on the server to show the corresponding requested website’s page on the web browser for the user with its full functionality. But maybe the HTTPS request was asking for some data from the saved data in the database, so it’ll go a bit further, to another step, trying to access the database server to send a query to CRUD (Create, Read, Update, Delete) data from a SQL or NoSQL database ..
 
 ![alt text](image-3.png)
-##### Source: https://www.temok.com/blog/web-server-vs-application-server/
+###### Source: https://www.temok.com/blog/web-server-vs-application-server/
 
 So after collecting the information needed, again, this time, the application server (which has the code base) will read needed data from both database server and the webserver, sending them to the user’s browser.
 
 Also as an example of various types of web servers some that shown in the image down here but the most commonly used are Apache, Nginx, and LiteSpeed (LSWS).
 
 ![alt text](image-4.png)
-##### Source: https://www.milesweb.in/blog/hosting/web-server-types-web-servers/
+###### Source: https://www.milesweb.in/blog/hosting/web-server-types-web-servers/
 
 And that was the journey of one HTTPS request that was safely and securely retrieved and got to the user’s screen on their browser.
 
-## And that was posted here: https://medium.com/@yr.ap.23/what-happens-when-you-type-google-com-in-your-browser-and-press-enter-91f7a81d7f69
+###### And that was posted here: https://medium.com/@yr.ap.23/what-happens-when-you-type-google-com-in-your-browser-and-press-enter-91f7a81d7f69
