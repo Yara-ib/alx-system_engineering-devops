@@ -17,7 +17,7 @@ if __name__ == '__main__':
     json_tasks = requests.get(url_tasks).json()
 
     # Preparing the CSV file
-    with open(f'{argv[1]}.csv', 'w', newline='') as file:
+    with open(f'{argv[1]}.csv', 'w') as file:
         write_file = csv.writer(file, quoting=csv.QUOTE_ALL)
 
     # Inserting data into the fields in CSV file
