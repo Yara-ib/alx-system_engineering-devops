@@ -27,7 +27,11 @@ if __name__ == '__main__':
                 if task.get('userId') == int(argv[1]):
                     task_completed_status = task.get('completed')
                     task_title = task.get('title')
-                    list_tasks_titles.append({"task": task_title, "completed": task_completed_status, "username": username})
+                    list_tasks_titles.append({
+                        "task": task_title,
+                        "completed": task_completed_status,
+                        "username": username
+                        })
             data_dict[argv[1]] = list_tasks_titles
 
         json.dump(data_dict, file)
