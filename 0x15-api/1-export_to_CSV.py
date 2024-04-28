@@ -21,14 +21,12 @@ if __name__ == '__main__':
         write_file = csv.writer(file, quoting=csv.QUOTE_ALL)
 
     # Inserting data into the fields in CSV file
-        for task in json_tasks:
-            if task.get('userId') == int(argv[1]):
-                task_completed_status = task.get('completed')
-                task_title = task.get('title')
-
-                if requests.get(url_employee_id):
-                    for row in task:
-                        write_file.writerow([
-                            argv[1], username,
-                            task_completed_status, task_title
-                            ])
+        if requests.get(url_employee_id):
+            for task in json_tasks:
+                if task.get('userId') == int(argv[1]):
+                    task_completed_status = task.get('completed')
+                    task_title = task.get('title')
+                    write_file.writerow([
+                        argv[1], username,
+                        task_completed_status, task_title
+                        ])
